@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | HydroControl Dynamics</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #E2E8F0;
+            border-radius: 15px;
+            font-family: inherit;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--azul-cyan);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Control Hídrico</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="filosofia.html">Quiénes Somos</a>
+            <a href="soluciones.html">Soluciones Técnicas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Centro de Contacto</h2>
+        <p style="text-align: center; color: #718096; margin-bottom: 40px; font-size: 1.1rem;">
+            ¿Te interesa nuestro proyecto? Solicita más información o una evaluación técnica.
+        </p>
+
+        <div class="polaroid-card" style="max-width: 500px; margin: 0 auto; padding: 40px; border-bottom: 6px solid var(--azul-marino);">
+            <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">✉️</div>
+            
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <div>
+                    <label style="font-weight: bold; color: var(--azul-marino); display: block; margin-bottom: 5px;">Nombre Completo:</label>
+                    <input type="text" placeholder="Ej. Diego Juárez" required>
+                </div>
+
+                <div>
+                    <label style="font-weight: bold; color: var(--azul-marino); display: block; margin-bottom: 5px;">Correo Electrónico:</label>
+                    <input type="email" placeholder="tu-correo@ejemplo.com" required>
+                </div>
+
+                <div>
+                    <label style="font-weight: bold; color: var(--azul-marino); display: block; margin-bottom: 5px;">Mensaje:</label>
+                    <textarea rows="4" placeholder="Cuéntanos en qué te podemos ayudar..." required style="resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px; font-size: 1.1rem;">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>HydroControl Dynamics © 2026 | Proyecto Feria Científica Colegio Las Américas</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Sistema Inteligente de Control de Agua</p>
+    </footer>
+</body>
+</html>
