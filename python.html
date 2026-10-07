@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroControl Dynamics - Python & Componentes</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para los recuadros de componentes */
+        .grid-componentes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .tarjeta-componente {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(13, 71, 161, 0.1);
+            border-top: 5px solid var(--azul-marino);
+            transition: transform 0.3s ease;
+        }
+        .tarjeta-componente:hover {
+            transform: translateY(-5px);
+        }
+        .tarjeta-componente h3 {
+            color: var(--azul-marino);
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .tarjeta-componente p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BURBUJAS ANIMADAS DE FONDO -->
+    <div class="water-background">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header>
+        <h1>Control Hídrico</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="filosofia.html">Quiénes Somos</a>
+            <a href="soluciones.html">Soluciones Técnicas</a>
+            <a href="python.html" style="color: var(--azul-cyan);">Python</a>
+            <a href="equipo.html">Equipo</a>
+            <a href="quiz.html">Quiz</a>
+
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="hero-section" style="padding: 40px 20px; margin-bottom: 40px;">
+            <span style="background: var(--azul-cyan); color: var(--azul-marino); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; text-transform: uppercase;">Automatización y Software</span>
+            <h2 style="color: white; font-size: 2.8rem; margin-top: 10px;">Control por Python y Hardware</h2>
+            <p style="font-size: 1.1rem; max-width: 750px; margin: 15px auto 0 auto; opacity: 0.95; line-height: 1.6;">
+                Estructura de software auxiliar y lógica de control integrada para el monitoreo y procesamiento de señales del sensor ultrasónico y componentes electrónicos.
+            </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.9); padding: 40px; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 40px;">
+            <h3 style="color: var(--azul-marino); margin-top: 0; font-size: 1.8rem;">Integración de Python en el Ecosistema</h3>
+            <p style="color: #4a5568; line-height: 1.8;">
+                Aunque el microcontrolador principal ejecuta lógica embebida, herramientas de software complementarias en <strong>Python</strong> permiten procesar datos telemétricos, simular respuestas lógicas de los componentes y gestionar interfaces de control auxiliar conectadas al sistema hídrico.
+            </p>
+
+            <h4 style="color: var(--azul-marino); margin-top: 30px; font-size: 1.3rem;">Estructura Lógica de Control (Simulador Python)</h4>
+            <p style="color: #4a5568;">Ejemplo de script utilizado para la evaluación de rangos de distancia y activación automática de alertas:</p>
+
+            <pre style="background: #0f172a; color: #38bdf8; padding: 20px; border-radius: 15px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; line-height: 1.5;"><code># Simulación de control de nivel de agua - HydroControl Dynamics
+#include <LiquidCrystal_I2C.h>
+
+// Inicializa el LCD (direccion I2C 0x27, 16 columnas, 2 filas)
+// Si la pantalla enciende pero no muestra texto, prueba con 0x3F
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Pines del sensor ultrasonico
+const int echoPin = 3;
+const int trigPin = 4;
+
+// Pines de los LEDs
+const int greenLed = 7;  // LED verde en el pin 7
+const int blueLed = 6;   // LED azul en el pin 6
+const int redLed = 5;    // LED rojo en el pin 5
+
+void setup() {
+  // Inicializa el LCD
+  lcd.init();
+  lcd.clear();
+  lcd.backlight();
+
+  // Pines del sensor ultrasonico
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin, OUTPUT);
+
+  // Pines de los LEDs
+  pinMode(greenLed, OUTPUT);
+  pinMode(blueLed, OUTPUT);
+  pinMode(redLed, OUTPUT);
+}
+
+void loop() {
+  // Obtiene la distancia hasta el agua
+  float distance = readDistance();
+
+  // Muestra la distancia en el LCD
+  lcd.setCursor(0, 0);
+  lcd.print("Distance:");
+  lcd.setCursor(0, 1);
+  lcd.print(distance);
+  lcd.print(" cm  ");
+
+  // Enciende el LED segun la distancia
+  if (distance <= 5) {
+    // 0-5 cm: LED verde
+    digitalWrite(greenLed, HIGH);
+    digitalWrite(blueLed, LOW);
+    digitalWrite(redLed, LOW);
+  } else if (distance > 5 && distance <= 10) {
+    // 5-10 cm: LED azul
+    digitalWrite(greenLed, LOW);
+    digitalWrite(blueLed, HIGH);
+    digitalWrite(redLed, LOW);
+  } else if (distance > 10 && distance <= 15) {
+    // 10-15 cm: LED rojo
+    digitalWrite(greenLed, LOW);
+    digitalWrite(blueLed, LOW);
+    digitalWrite(redLed, HIGH);
+  } else {
+    // Mas de 15 cm: todos apagados
+    digitalWrite(greenLed, LOW);
+    digitalWrite(blueLed, LOW);
+    digitalWrite(redLed, LOW);
+  }
+
+  delay(500);  // Espera 500 milisegundos
+}
+
+// Lee la distancia del sensor ultrasonico
+float readDistance() {
+  digitalWrite(trigPin, LOW);   // Asegura que el pin trig este en bajo
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);  // Envia el pulso ultrasonico
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);   // Termina el disparo
+
+  // Mide el ancho del pulso en echo y lo convierte a cm
+  float distance = pulseIn(echoPin, HIGH) / 58.00;
+  return distance;
+}
+</code></pre>
+        </div>
+
+        <!-- SECCIÓN CON RECUADROS PARA COMPONENTES Y COMUNICACIÓN -->
+        <div class="grid-componentes">
+            <div class="tarjeta-componente">
+                <h3>Comunicación Serial</h3>
+                <p>Permite la lectura en tiempo real de los datos enviados por el sensor ultrasónico HC-SR05 a través del puerto USB del microcontrolador hacia la terminal de control.</p>
+            </div>
+            <div class="tarjeta-componente" style="border-top-color: var(--azul-cyan);">
+                <h3>Automatización y Alertas</h3>
+                <p>Procesa los umbrales de seguridad establecidos para accionar de forma instantánea los indicadores visuales y sonoros (LEDs rojo, amarillo y azul).</p>
+            </div>
+            <div class="tarjeta-componente" style="border-top-color: #ED8936;">
+                <h3>Procesamiento de Datos</h3>
+                <p>Convierte los tiempos de rebote de las ondas ultrasónicas en métricas precisas de distancia y nivel volumétrico para una toma de decisiones autónoma.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>HydroControl Dynamics © 2026 | Proyecto Feria Científica Colegio Las Américas</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Sistema Inteligente de Control de Agua</p>
+    </footer>
+</body>
+</html>

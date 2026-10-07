@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroControl Dynamics - Quiz Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(13, 71, 161, 0.1);
+        }
+        .question-card {
+            background: #f8fafc;
+            border-left: 5px solid var(--azul-marino);
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .question-card h3 {
+            color: var(--azul-marino);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .option-label:hover {
+            background: #e0f2fe;
+            border-color: var(--azul-cyan);
+        }
+        /* Clases para retroalimentación visual */
+        .option-label.correct {
+            background-color: #d1fae5 !important;
+            border-color: #059669 !important;
+            color: #065f46;
+            font-weight: bold;
+        }
+        .option-label.incorrect {
+            background-color: #fee2e2 !important;
+            border-color: #dc2626 !important;
+            color: #991b1b;
+        }
+        #resultado-quiz {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--azul-marino);
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #e0f2fe;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BURBUJAS ANIMADAS DE FONDO -->
+    <div class="water-background">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header>
+        <h1>Control Hídrico</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="filosofia.html">Quiénes Somos</a>
+            <a href="soluciones.html">Soluciones Técnicas</a>
+            <a href="python.html">Python</a>
+            <a href="equipo.html">Equipo</a>
+            <a href="quiz.html" style="color: var(--azul-cyan);">Quiz</a>
+            
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="hero-section" style="padding: 40px 20px; margin-bottom: 40px;">
+            <span style="background: var(--azul-cyan); color: var(--azul-marino); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; text-transform: uppercase;">Evaluación de Conocimientos</span>
+            <h2 style="color: white; font-size: 2.8rem; margin-top: 10px;">Quiz de HydroControl Dynamics</h2>
+            <p style="font-size: 1.1rem; max-width: 750px; margin: 15px auto 0 auto; opacity: 0.95; line-height: 1.6;">
+                Pon a prueba lo que aprendiste sobre nuestro sistema inteligente de control de agua, física fundamental y tecnología web.
+            </p>
+        </div>
+
+        <div class="quiz-container">
+            <form id="form-quiz">
+                
+                <!-- Pregunta 1 -->
+                <div class="question-card" data-question="p1" data-correct="b">
+                    <h3>1. ¿Cuál es la función principal del sensor ultrasónico HC-SR05 en el proyecto?</h3>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="p1" value="a"> A) Medir la temperatura y el pH del agua químicamente.</label>
+                        <label class="option-label"><input type="radio" name="p1" value="b"> B) Medir sin contacto físico la distancia hasta la superficie del agua mediante ondas sonoras.</label>
+                        <label class="option-label"><input type="radio" name="p1" value="c"> C) Bombear el agua directamente desde el fondo del tanque.</label>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="question-card" data-question="p2" data-correct="c">
+                    <h3>2. ¿Cómo se calcula el nivel real del agua ($h$) a partir de la medición del sensor ($d$)?</h3>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="p2" value="a"> A) Multiplicando la distancia por la densidad del agua.</label>
+                        <label class="option-label"><input type="radio" name="p2" value="b"> B) Sumando la altura total del tanque con la distancia medida.</label>
+                        <label class="option-label"><input type="radio" name="p2" value="c"> C) Restando la distancia medida a la altura total de referencia del tanque ($h = H - d$).</label>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="question-card" data-question="p3" data-correct="a">
+                    <h3>3. ¿Qué indicador visual y acción se activan cuando el tanque se encuentra en un nivel BAJO (20 cm a 24 cm)?</h3>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="p3" value="a"> A) LED Rojo y activación automática de la bomba de llenado.</label>
+                        <label class="option-label"><input type="radio" name="p3" value="b"> B) LED Azul y alarma de seguridad.</label>
+                        <label class="option-label"><input type="radio" name="p3" value="c"> C) LED Amarillo y sistema en espera.</label>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div class="question-card" data-question="p4" data-correct="b">
+                    <h3>4. ¿Qué tecnología web se utilizó para alojar y publicar la página del proyecto de forma pública en internet?</h3>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="p4" value="a"> A) Servidores locales sin conexión.</label>
+                        <label class="option-label"><input type="radio" name="p4" value="b"> B) GitHub Pages a través de un repositorio de Git.</label>
+                        <label class="option-label"><input type="radio" name="p4" value="c"> C) Una aplicación de escritorio offline.</label>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="button" class="btn" onclick="calificarQuiz()">Calificar Respuestas y Ver Correctas</button>
+                </div>
+
+            </form>
+
+            <div id="resultado-quiz"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>HydroControl Dynamics © 2026 | Proyecto Feria Científica Colegio Las Américas</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Sistema Inteligente de Control de Agua</p>
+    </footer>
+
+    <script>
+        function calificarQuiz() {
+            let aciertos = 0;
+            const total = 4;
+            const tarjetas = document.querySelectorAll('.question-card');
+
+            tarjetas.forEach(tarjeta => {
+                const qName = tarjeta.getAttribute('data-question');
+                const correctVal = tarjeta.getAttribute('data-correct');
+                const radios = tarjeta.querySelectorAll(`input[name="${qName}"]`);
+
+                // Limpiar estilos anteriores
+                radios.forEach(radio => {
+                    radio.parentElement.classList.remove('correct', 'incorrect');
+                });
+
+                let seleccionada = null;
+                radios.forEach(radio => {
+                    if (radio.checked) {
+                        seleccionada = radio.value;
+                    }
+                });
+
+                // Resaltar la opción correcta y la seleccionada incorrecta si aplica
+                radios.forEach(radio => {
+                    if (radio.value === correctVal) {
+                        radio.parentElement.classList.add('correct'); // Pone verde la correcta
+                    } else if (radio.checked && radio.value !== correctVal) {
+                        radio.parentElement.classList.add('incorrect'); // Pone rojo si el usuario falló
+                    }
+                });
+
+                if (seleccionada === correctVal) {
+                    aciertos++;
+                }
+            });
+
+            const resultadoDiv = document.getElementById('resultado-quiz');
+            resultadoDiv.style.display = 'block';
+            
+            if (aciertos === total) {
+                resultadoDiv.innerHTML = ` ¡Perfecto! Obtuviste ${aciertos} de ${total} aciertos. ¡Todas las respuestas resaltadas en verde son correctas!`;
+                resultadoDiv.style.color = '#065f46';
+                resultadoDiv.style.background = '#d1fae5';
+            } else {
+                resultadoDiv.innerHTML = ` Obtuviste ${aciertos} de ${total} aciertos. <br><span style="font-size: 1rem; font-weight: normal;">Las respuestas correctas ahora se muestran marcadas en verde en cada pregunta.</span>`;
+                resultadoDiv.style.color = '#1e3a8a';
+                resultadoDiv.style.background = '#e0f2fe';
+            }
+        }
+    </script>
+</body>
+</html>

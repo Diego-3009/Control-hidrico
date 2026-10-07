@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroControl Dynamics - Equipo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la vista de equipo tipo burbujas */
+        .team-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        .team-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(13, 71, 161, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+        .avatar-circle {
+            width: 70px;
+            height: 70px;
+            background-color: var(--azul-marino);
+            color: var(--azul-cyan);
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 229, 255, 0.3);
+            border: 2px solid var(--azul-cyan);
+        }
+        .team-card p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--texto);
+            font-size: 0.95rem;
+        }
+        .section-title-docentes {
+            color: var(--azul-marino);
+            margin-top: 30px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--azul-cyan);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BURBUJAS ANIMADAS DE FONDO -->
+    <div class="water-background">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header>
+        <h1>Control Hídrico</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="filosofia.html">Quiénes Somos</a>
+            <a href="soluciones.html">Soluciones Técnicas</a>
+            <a href="python.html">Python</a>
+            <a href="equipo.html" style="color: var(--azul-cyan);">Equipo</a>
+            <a href="quiz.html">Quiz</a>
+      
+        </nav>
+    </header>
+
+    <div class="container team-container">
+        <div style="background: rgba(255,255,255,0.85); padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <h2 style="color: var(--azul-marino); margin-bottom: 10px;">Integrantes del Proyecto</h2>
+            <p style="color: #64748b; margin-bottom: 30px;">Este proyecto científico y tecnológico fue desarrollado por estudiantes de 10mo B del Colegio Las Américas.</p>
+
+            <!-- Grid de Estudiantes -->
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar-circle">KA</div>
+                    <p>Keyla Argueta</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar-circle">NR</div>
+                    <p>Natalia Rojas</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar-circle">AG</div>
+                    <p>Annelisse García</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar-circle">DJ</div>
+                    <p>Diego Juárez</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar-circle">AÚ</div>
+                    <p>Álvaro Úrla</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar-circle">JG</div>
+                    <p>José García</p>
+                </div>
+            </div>
+
+            <h3 class="section-title-docentes">Docentes Guía y Asesores</h3>
+            
+            <!-- Grid de Docentes -->
+            <div class="team-grid" style="margin-top: 20px;">
+                <div class="team-card" style="border-top: 4px solid var(--azul-cyan);">
+                    <div class="avatar-circle" style="background: var(--azul-cyan); color: var(--azul-marino);">RE</div>
+                    <p>Ronny Esquivel</p>
+                    <span style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Física Fundamental</span>
+                </div>
+                <div class="team-card" style="border-top: 4px solid var(--azul-marino);">
+                    <div class="avatar-circle">DP</div>
+                    <p>Diana Pineda</p>
+                    <span style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Química</span>
+                </div>
+                <div class="team-card" style="border-top: 4px solid #ED8936;">
+                    <div class="avatar-circle" style="background: #ED8936; color: white;">DC</div>
+                    <p>Dorian Corado</p>
+                    <span style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Laboratorio</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>HydroControl Dynamics © 2026 | Proyecto Feria Científica Colegio Las Américas</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Sistema Inteligente de Control de Agua</p>
+    </footer>
+</body>
+</html>

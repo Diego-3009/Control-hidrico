@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | HydroControl Dynamics</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos centrados y con colores limpios que combinan perfectamente */
+        .contenedor-filosofia {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tarjeta-filosofia {
+            background: #FFFFFF;
+            color: #2D3748;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(13, 71, 161, 0.08);
+            border-top: 5px solid var(--azul-marino);
+            margin-bottom: 30px;
+            text-align: center; /* Todo perfectamente centrado */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tarjeta-filosofia:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
+        }
+
+        .tarjeta-filosofia h3 {
+            color: var(--azul-marino);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .tarjeta-filosofia p {
+            color: #4A5568;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .equipo-lista {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .equipo-lista li {
+            padding: 8px 0;
+            border-bottom: 1px solid #EDF2F7;
+            font-size: 1.05rem;
+            color: #4A5568;
+        }
+    </style>
+</head>
+<body>
+
+ <div class="water-background">
+    <div class="bubble" style="--tam:40px; --izq:10%; --dur:12s; --deriva:30px"></div>
+    <div class="bubble" style="--tam:70px; --izq:35%; --dur:16s; --deriva:-40px"></div>
+    <div class="bubble" style="--tam:25px; --izq:60%; --dur:10s; --deriva:20px"></div>
+    <!-- agrega más cambiando los valores -->
+</div>
+
+    <header>
+        <h1> Control Hidrico</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="filosofia.html">Quiénes Somos</a>
+            <a href="soluciones.html">Soluciones Técnicas</a>
+            <a href="python.html">Python</a>
+            <a href="equipo.html">Equipo</a>
+            <a href="quiz.html">Quiz</a>
+        </nav>
+    </header>
+
+    <div class="container contenedor-filosofia">
+        <h2>Filosofía Institucional</h2>
+        <p style="text-align: center; color: #718096; margin-bottom: 50px; font-size: 1.15rem;">
+            Innovación tecnológica aplicada a la automatización y preservación ambiental.
+        </p>
+
+        <!-- Misión -->
+        <div class="tarjeta-filosofia">
+            <h3> Nuestra Misión</h3>
+            <p>
+                Desarrollar soluciones tecnológicas accesibles y automatizadas que optimicen la gestión del recurso hídrico en hogares e industrias. Buscamos eliminar la dependencia de la supervisión manual, previniendo derrames por desbordamiento y reduciendo drásticamente el consumo energético innecesario mediante el uso inteligente de sensores y microcontroladores.
+            </p>
+        </div>
+
+        <!-- Visión -->
+        <div class="tarjeta-filosofia" style="border-top-color: var(--azul-cyan);">
+            <h3> Nuestra Visión</h3>
+            <p>
+                Consolidarnos como un referente estudiantil en mecatrónica y desarrollo sostenible, impulsando prototipos escalables que demuestren cómo la unión entre la física fundamental, la química y la programación puede resolver problemáticas reales de escasez y desperdicio de agua en nuestra sociedad.
+            </p>
+        </div>
+        
+        <!-- Equipo de Trabajo -->
+        <div class="tarjeta-filosofia" style="border-top-color: #319795;">
+            <h3> Equipo Desarrollador</h3>
+            <p style="margin-bottom: 20px;">
+                <strong>Institución:</strong> Colegio Las Américas (10mo B) &nbsp;|&nbsp; <strong>Docente Guía:</strong> Ronny Esquivel
+            </p>
+            <div style="text-align: center;">
+                <p style="color: var(--azul-marino); font-weight: bold; margin-bottom: 10px;">Integrantes del Proyecto:</p>
+                <ul class="equipo-lista">
+                    <li>🔹 Keyla Argueta</li>
+                    <li>🔹 Natalia Rojas</li>
+                    <li>🔹 Annelisse García</li>
+                    <li>🔹 Diego Juárez</li>
+                    <li>🔹 Álvaro Úrla</li>
+                    <li>🔹 José García</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>HydroControl Dynamics © 2026 | Proyecto Feria Científica Colegio Las Américas</p>
+    </footer>
+</body>
+</html>
